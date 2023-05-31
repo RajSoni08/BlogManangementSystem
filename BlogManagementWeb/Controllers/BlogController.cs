@@ -22,7 +22,7 @@ namespace BlogManagementWeb.Controllers
 
         public async Task<IActionResult> Details(int id)
         {
-            Blog post = await _blogService.GetUserByIdAsync(id);
+            Models.Blog post = await _blogService.GetUserByIdAsync(id);
             if (post == null)
             {
                 return NotFound();
@@ -36,7 +36,7 @@ namespace BlogManagementWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Blog blog)
+        public async Task<IActionResult> Create(Models.Blog blog)
         {
             if (ModelState.IsValid)
             {
@@ -54,7 +54,7 @@ namespace BlogManagementWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, Blog blog)
+        public async Task<IActionResult> Edit(int id, Models.Blog blog)
         {
             if (ModelState.IsValid)
             {

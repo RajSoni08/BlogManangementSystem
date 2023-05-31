@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33706.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogManangementAPI", "BlogManangement\BlogManangementAPI.csproj", "{32282E34-A856-4F4D-9584-80BB574FC3D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogManangementAPI", "BlogManangement\BlogManangementAPI.csproj", "{32282E34-A856-4F4D-9584-80BB574FC3D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogManagementWeb", "BlogManagementWeb\BlogManagementWeb.csproj", "{12D7F03D-8F78-41BB-9159-95DB990481EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogManagementWeb", "BlogManagementWeb\BlogManagementWeb.csproj", "{12D7F03D-8F78-41BB-9159-95DB990481EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{CCC610A9-E13A-4532-8AB2-A83FC444B524}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{CCC610A9-E13A-4532-8AB2-A83FC444B524}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{000C3698-F72E-4E28-A6E5-1F58B2943659}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{000C3698-F72E-4E28-A6E5-1F58B2943659}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Utility", "Utility\Blog.Utility.csproj", "{56A78CB4-DDF1-4F4C-9C52-7874265F2FA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{000C3698-F72E-4E28-A6E5-1F58B2943659}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{000C3698-F72E-4E28-A6E5-1F58B2943659}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{000C3698-F72E-4E28-A6E5-1F58B2943659}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56A78CB4-DDF1-4F4C-9C52-7874265F2FA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56A78CB4-DDF1-4F4C-9C52-7874265F2FA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56A78CB4-DDF1-4F4C-9C52-7874265F2FA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56A78CB4-DDF1-4F4C-9C52-7874265F2FA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
