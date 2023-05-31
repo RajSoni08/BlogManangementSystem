@@ -1,0 +1,26 @@
+﻿@using Models;
+@model Models.Blog
+
+<h2>Create Blog</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="BlogTitle">Title:</label>
+        <input asp-for="BlogTitle" class="form-control" />
+        <span asp-validation-for="BlogTitle" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BlogContet">Content:</label>
+        <textarea asp-for="BlogContet" class="form-control"></textarea>
+        <span asp-validation-for="BlogContet" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BlogCategory">Category:</label>
+        <textarea asp-for="BlogCategory" class="form-control"></textarea>
+        <span asp-validation-for="BlogCategory" class="text-danger"></span>
+    </div>
+    <div class="col-5 offset-2">
+        <a asp-controller="Blog" asp-action="Index" class="btn-primary btn form-control">Back </a>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
