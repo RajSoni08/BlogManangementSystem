@@ -8,13 +8,19 @@ namespace BlogManagementWeb.Controllers
     public class SubscriptionController : Controller
     {
         private readonly ISubscriptionService _SubscriptionService;
-        public SubscriptionController(ISubscriptionService SubscriptionService)
+        private readonly IBlogService _BlogService;
+        public SubscriptionController(ISubscriptionService SubscriptionService, IBlogService blogService)
         {
+
             _SubscriptionService = SubscriptionService;
+            _BlogService = blogService;
         }
         public async Task<IActionResult> Index()
         {
+
             var posts = await _SubscriptionService.GetUsersAsync();
+            var blogs = _BlogService.GetUsersAsync();
+            ViewBag.Blogs = blogs;
             return View(posts);
         }
         public IActionResult Subscribe()

@@ -29,8 +29,8 @@ namespace BlogManangementAPI.Controllers
         [HttpGet]
         public IActionResult GetSubscriptions()
         {
-            var subscriptions = _repository.GetAll();
-            return Ok(subscriptions);
+            IEnumerable<Subscription> blog = _repository.GetAll().ToList();
+            return Ok(blog);
         }
         [HttpGet("{id}")]
         public IActionResult GetById(int? id)
@@ -68,7 +68,8 @@ namespace BlogManangementAPI.Controllers
             blog.NoofSubsciption--;
             _blogRepository.Update(blog);
             Subscription Sub = _mapper.Map<Subscription>(subscrip);
-            return Ok(Sub);
+            _repository.SaveAs();
+            return Ok(subscription);
         }
 
         [HttpDelete("{id}")]
@@ -85,6 +86,7 @@ namespace BlogManangementAPI.Controllers
             {
                 blog.NoofSubsciption++;
                 _blogRepository.Update(blog);
+                _repository.SaveAs();
             }
 
             return Ok();

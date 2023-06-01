@@ -19,6 +19,11 @@
         <textarea asp-for="BlogCategory" class="form-control"></textarea>
         <span asp-validation-for="BlogCategory" class="text-danger"></span>
     </div>
+    <div class="form-group">
+        <label asp-for="NoofSubsciption">No of Subscription:</label>
+        <textarea asp-for="NoofSubsciption" inputmode="numeric" class="form-control"></textarea>
+        <span asp-validation-for="NoofSubsciption" class="text-danger"></span>
+    </div>
     <div class="col-5 offset-2">
         <a asp-controller="Blog" asp-action="Index" class="btn-primary btn form-control">Back </a>
     </div>

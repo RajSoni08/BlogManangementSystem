@@ -1,6 +1,8 @@
 ﻿using BlogManagementWeb.Service.IService;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Models;
+using System.Data;
 
 namespace BlogManagementWeb.Controllers
 {
@@ -73,6 +75,7 @@ namespace BlogManagementWeb.Controllers
 
         [HttpPost]
         [ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _blogService.DeleteUserAsync(id);
