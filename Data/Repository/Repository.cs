@@ -16,6 +16,7 @@ namespace Data.Repository
         public Repository(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
+            _dbContext.Subscriptions.Include(u => u.Blog).ToList();
             dbSet = dbContext.Set<T>();
         }
         public void Create(T entity)

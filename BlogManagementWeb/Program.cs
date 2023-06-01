@@ -14,9 +14,12 @@ builder.Services.AddIdentity<IdentityUser,IdentityRole>().AddEntityFrameworkStor
 
 // Add services to the container.
 builder.Services.AddScoped<IEmailSender, EmailSender>();
+builder.Services.AddScoped<IBlogService, BlogService>();
 builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<IBlogService, BlogService>();
+builder.Services.AddHttpClient<ISubscriptionService, SubscriptionService>();
+
 
 var app = builder.Build();
 

@@ -1,0 +1,37 @@
+﻿@using Models;
+@using Models.DTO; 
+@model IEnumerable<Subscription>
+
+<h2>Blog Posts</h2>
+<div class="col text-end pt-1">
+    <a asp-controller="Subscription" asp-action="Subscribe" class="btn btn-outline-primary"><i class="bi bi-plus-square-fill"></i>Subscribe Blog</a>
+</div>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>BlogId</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var post in Model)
+            {
+                <tr>
+                    <td>@post.BlogId</td>
+                    <td>
+
+                        <a asp-action="UnSubscribe" asp-route-id="@post.Id">UnSubscribe</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No blog posts available.</p>
+}

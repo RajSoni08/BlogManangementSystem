@@ -46,6 +46,7 @@ builder.Services.AddSwaggerGen(options => {
 });
 builder.Services.AddAutoMapper(typeof(MappingConfig));
 builder.Services.AddScoped<IBlogRepository, BlogRepository>();
+builder.Services.AddScoped<ISubscriptionRepository, SubscriptionRepository>();
 builder.Services.AddScoped<IHomeRepository, HomeRepository>();
 builder.Services.AddDbContext<ApplicationDbContext>(option =>
 {

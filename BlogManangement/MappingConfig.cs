@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Models;
+using Models.DTO;
 
 namespace BlogManangementAPI
 {
@@ -8,6 +9,7 @@ namespace BlogManangementAPI
         public MappingConfig()
         {
             CreateMap<Blog , BlogDTO>().ReverseMap();
+            CreateMap<Subscription,SubsrciptionDTO>().ReverseMap();
         }
 
     }
