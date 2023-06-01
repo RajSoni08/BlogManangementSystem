@@ -28,9 +28,9 @@
                     <td>@post.Blog.BlogCategory</td>
                     <td>@post.Blog.NoofSubsciption</td>
                     <td>
-
-                        <a asp-action="UnSubscribe" asp-route-id="@post.Id">UnSubscribe</a>
                         <a asp-action="Subscribe" asp-route-id="@post.Id">Subscribe</a>
+                        <a asp-action="UnSubscribe" asp-route-id="@post.Id">UnSubscribe</a>
+                       
                     </td>
                 </tr>
             }
