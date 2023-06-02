@@ -11,5 +11,6 @@ namespace Data.Repository.IRepository
     {
         void Update(Blog entity);
         //IEnumerable<Blog> GetPendingBlogs();
+       
     }
 }

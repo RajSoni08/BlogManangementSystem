@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Models.Blog>
+
+<h2>No Action Taken Blogs</h2>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Blog Title</th>
+                <th>Subscription Available</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var blog in Model)
+            {
+                <tr>
+                    <td>@blog.BlogTitle</td>
+                    <td>@blog.NoofSubsciption</td>
+                    <td>
+                        <form asp-action="ApproveBlog" method="post">
+                           
+                            <input type="hidden" name="id" value="@blog.Id" />
+                            <button type="submit">Approve</button>
+                        </form>
+                        <form asp-action="RejectBlog" method="post">
+                            <input type="hidden" name="id" value="@blog.Id" />
+                            <button type="submit">Reject</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No blogs found.</p>
+}

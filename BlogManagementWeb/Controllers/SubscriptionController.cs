@@ -36,7 +36,7 @@ namespace BlogManagementWeb.Controllers
                 var createdBlog = await _SubscriptionService.CreateUserAsync(subscription);
                 return RedirectToAction(nameof(Index), new { id = createdBlog.Id });
             }
-
+            TempData["success"] = "Successfully Subscribed";
             return View(subscription);
         }
         public async Task<IActionResult> UnSubscribe(int id)
@@ -50,6 +50,7 @@ namespace BlogManagementWeb.Controllers
         public async Task<IActionResult> UnSubscribeConfirmed(int id)
         {
             await _SubscriptionService.DeleteUserAsync(id);
+            TempData["success"] = "Unsubscribed Successfully";
             return RedirectToAction(nameof(Index));
         }
 

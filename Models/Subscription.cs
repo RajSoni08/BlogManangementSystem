@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -15,6 +16,7 @@ namespace Models
         public int Id { get; set; }
         [ForeignKey("BlogId")]
         [Column(TypeName = "varchar(100)")]
+       // [ValidateNever]
         public Blog Blog { get; set; }
         
         public int BlogId { get; set; }

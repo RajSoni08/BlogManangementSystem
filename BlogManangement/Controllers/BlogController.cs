@@ -64,7 +64,7 @@ namespace BlogManangementAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "admin")]
+       // [Authorize(Roles = "admin")]
         public IActionResult Delete(int id)
         {
             Blog blog = _blogRepository.Get(u => u.Id == id);
@@ -78,5 +78,6 @@ namespace BlogManangementAPI.Controllers
 
             return NoContent();
         }
+
     }
 }

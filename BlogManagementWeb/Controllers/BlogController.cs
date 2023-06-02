@@ -19,6 +19,7 @@ namespace BlogManagementWeb.Controllers
         public async Task<IActionResult> Index()
         {
             var posts = await _blogService.GetUsersAsync();
+            
             return View(posts);
         }
 
@@ -43,9 +44,10 @@ namespace BlogManagementWeb.Controllers
             if (ModelState.IsValid)
             {
                 var createdBlog = await _blogService.CreateUserAsync(blog);
+                TempData["success"] = "Successfully";
                 return RedirectToAction(nameof(Index), new { id = createdBlog.Id });
             }
-
+           
             return View(blog);
         }
 
@@ -61,6 +63,7 @@ namespace BlogManagementWeb.Controllers
             if (ModelState.IsValid)
             {
                 await _blogService.UpdateUserAsync(id, blog);
+                TempData["success"] = "Updated Successfully";
                 return RedirectToAction(nameof(Index), new { id });
             }
 
@@ -75,10 +78,11 @@ namespace BlogManagementWeb.Controllers
 
         [HttpPost]
         [ActionName("Delete")]
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             await _blogService.DeleteUserAsync(id);
+            TempData["success"] = "Delete Successfully";
             return RedirectToAction(nameof(Index));
         }
         //public IActionResult PendingBlogs()

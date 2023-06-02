@@ -19,6 +19,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<IBlogService, BlogService>();
 builder.Services.AddHttpClient<ISubscriptionService, SubscriptionService>();
+builder.Services.AddHttpClient<IAdminService, AdminService>();
+
 
 
 var app = builder.Build();

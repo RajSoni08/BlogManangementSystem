@@ -88,6 +88,8 @@ namespace BlogManangementAPI.Controllers
                 _blogRepository.Update(blog);
                 _repository.SaveAs();
             }
+           // TempData["success"] = "Product Delete Successfully";
+
 
             return Ok();
         }
