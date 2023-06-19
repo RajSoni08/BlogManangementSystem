@@ -63,19 +63,19 @@ namespace BlogManangementAPI.Controllers
                 //Email = subscrip.Email
 
             };
-            
-            _repository.Create(subscription);
+            Subscription result = _mapper.Map<Subscription>(subscrip);
+            _repository.Create(result);
             blog.NoofSubsciption--;
             _blogRepository.Update(blog);
-            Subscription Sub = _mapper.Map<Subscription>(subscrip);
+            //Subscription Sub = _mapper.Map<Subscription>(subscrip);
             _repository.SaveAs();
             return Ok(subscription);
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeleteSubscription(int subscriptionId)
+        public IActionResult DeleteSubscription(int id)
         {
-            var subscription = _repository.Get(u => u.Id == subscriptionId);
+            var subscription = _repository.Get(u => u.BlogId == id);
             if (subscription == null)
                 return NotFound();
 

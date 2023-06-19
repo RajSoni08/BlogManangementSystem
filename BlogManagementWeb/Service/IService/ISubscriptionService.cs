@@ -1,4 +1,5 @@
 ﻿using Models;
+using Models.DTO;
 
 namespace BlogManagementWeb.Service.IService
 {
@@ -6,7 +7,7 @@ namespace BlogManagementWeb.Service.IService
     {
         Task<IEnumerable<Subscription>> GetUsersAsync();
         Task<Subscription> GetUserByIdAsync(int id);
-        Task<Subscription> CreateUserAsync(Subscription user);
+        Task<Subscription> CreateUserAsync(SubsrciptionDTO user);
      
         Task DeleteUserAsync(int id);
     }

@@ -1,5 +1,6 @@
 ﻿using BlogManagementWeb.Service.IService;
 using Models;
+using Models.DTO;
 using Newtonsoft.Json;
 using System.Net;
 using System.Text;
@@ -40,7 +41,7 @@ namespace BlogManagementWeb.Service
             return blogPost;
         }
 
-        public async Task<Subscription> CreateUserAsync(Subscription blog)
+        public async Task<Subscription> CreateUserAsync(SubsrciptionDTO blog)
         {
             string json = JsonConvert.SerializeObject(blog);
             HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");

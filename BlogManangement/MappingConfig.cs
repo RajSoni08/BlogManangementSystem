@@ -10,6 +10,9 @@ namespace BlogManangementAPI
         {
             CreateMap<Blog , BlogDTO>().ReverseMap();
             CreateMap<Subscription,SubsrciptionDTO>().ReverseMap();
+            CreateMap<ApplicationUser, UserDTO>().ReverseMap();
+            CreateMap<UserDTO, RegistrationRequestDTO>().ReverseMap();
+
         }
 
     }

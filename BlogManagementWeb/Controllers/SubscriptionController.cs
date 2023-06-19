@@ -2,6 +2,7 @@
 using BlogManagementWeb.Service.IService;
 using Microsoft.AspNetCore.Mvc;
 using Models;
+using Models.DTO;
 
 namespace BlogManagementWeb.Controllers
 {
@@ -29,14 +30,22 @@ namespace BlogManagementWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Subscribe(Subscription subscription)
+        public async Task<IActionResult> Subscribe(int Id)
         {
-            if (ModelState.IsValid)
+            var blog = await _BlogService.GetUserByIdAsync(Id);
+            SubsrciptionDTO subscription = new SubsrciptionDTO
             {
+                BlogId = Id,
+                // Populate other subscription properties as needed
+            };
+
+            //if (ModelState.IsValid)
+            
                 var createdBlog = await _SubscriptionService.CreateUserAsync(subscription);
-                return RedirectToAction(nameof(Index), new { id = createdBlog.Id });
-            }
             TempData["success"] = "Successfully Subscribed";
+            return RedirectToAction(nameof(Index), new { id = createdBlog.Id });
+            
+            
             return View(subscription);
         }
         public async Task<IActionResult> UnSubscribe(int id)

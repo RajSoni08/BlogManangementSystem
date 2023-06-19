@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Data.Repository.IRepository
 {
-    public interface IHomeRepository : IRepository<User>
+    public interface IHomeRepository : IRepository<UserDTO>
     {
         bool IsUniqueUser(string username);
         Task<LoginResponseDTO> Login(LoginRequestDTO loginRequestDTO);
-        Task<User> Register(RegistrationRequestDTO registrationRequestDTO);
-        Task<User> UpdateAsync(User entity);
+        Task<UserDTO> Register(RegistrationRequestDTO registrationRequestDTO);
+        Task<UserDTO> UpdateAsync(UserDTO entity);
     }
 }

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Data;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Blog.Utility;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,24 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<IBlogService, BlogService>();
 builder.Services.AddHttpClient<ISubscriptionService, SubscriptionService>();
 builder.Services.AddHttpClient<IAdminService, AdminService>();
+builder.Services.AddHttpClient<IAuthService, AuthService>();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).
+    AddCookie(options =>
+    {
+        options.Cookie.HttpOnly = true;
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+        options.LoginPath = "/Account/Login";
+        //options.LoginPath = "/Auth/AccessDenied";
+        options.SlidingExpiration = true;
+    });
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(100);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+
+});
 
 
 
@@ -39,7 +58,9 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseSession();
 app.MapRazorPages();
+
 
 app.MapControllerRoute(
     name: "default",

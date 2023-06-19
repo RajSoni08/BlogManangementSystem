@@ -20,7 +20,15 @@
         <tbody>
             @foreach (var post in Model)
             {
+                Html.RenderPartial("_SubscriptionPartial", post);
+
                 <tr>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@post.Id">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@post.Id">Delete</a>
+                    </td>
+                </tr>
+                @*<tr>
                     <td>@post.BlogTitle</td>
                     <td>@post.BlogContet</td>
                     <td>@post.BlogCategory</td>
@@ -29,10 +37,11 @@
                         <a asp-action="Edit" asp-route-id="@post.Id">Edit</a> |
                         <a asp-action="Delete" asp-route-id="@post.Id">Delete</a>
                     </td>
-                </tr>
+                </tr>*@
             }
         </tbody>
     </table>
+    @await Component.InvokeAsync("MostSubscribedBlog")
 }
 else
 {

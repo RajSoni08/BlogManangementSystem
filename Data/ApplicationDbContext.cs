@@ -15,7 +15,7 @@ namespace Data
         }
 
         public DbSet<Blog> Blogs { get; set; }
-        public DbSet<User> user { get; set; }
+        public DbSet<UserDTO> user { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         public DbSet<Subscription> Subscriptions { get; set; }
