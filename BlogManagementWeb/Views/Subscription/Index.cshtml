@@ -28,12 +28,12 @@
                     <td>@post.Blog.BlogCategory</td>
                     <td>@post.Blog.NoofSubsciption</td>
                     <td>
-                        <form asp-action="Subscribe" asp-route-id="@post.BlogId" method="post">
-                            <input type="hidden" name="id" value="@post.Id" />
+                        <form asp-action="Subscribe" method="post">
+                            <input type="hidden" name="id" value="@post.BlogId" />
                             <button type="submit">Subscribe</button>
                         </form>
-                        <form asp-action="UnSubscribe" asp-route-id="@post.BlogId" method="post">
-                            <input type="hidden" name="id" value="@post.Id" />
+                        <form asp-action="UnSubscribe" method="post">
+                            <input type="hidden" name="id" value="@post.BlogId" />
                             <button type="submit">UnSubscribe</button>
                         </form> 
                     </td>
