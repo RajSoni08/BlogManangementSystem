@@ -24,7 +24,7 @@ namespace BlogManagementWeb.Service
             string json = JsonConvert.SerializeObject(model);
             HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            HttpResponseMessage response = await _httpClient.PostAsync("/api/Home/login", content);
+            HttpResponseMessage response = await _httpClient.PostAsync("api/Home/login", content);
             response.EnsureSuccessStatusCode();
             string responseContent = await response.Content.ReadAsStringAsync();
             LoginResponseDTO createdBlogPost = JsonConvert.DeserializeObject<LoginResponseDTO>(responseContent);

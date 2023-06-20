@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Data.Repository
 {
-    public class HomeRepository : Repository<UserDTO>, IHomeRepository
+    public class HomeRepository : Repository<User>, IHomeRepository
     {
         private readonly ApplicationDbContext _db;
         private readonly UserManager<ApplicationUser> userManager;
@@ -36,7 +36,7 @@ namespace Data.Repository
 
         public bool IsUniqueUser(string username)
         {
-            var user = _db.user.FirstOrDefault(x => x.Name == username);
+            var user = _db.ApplicationUsers.FirstOrDefault(x => x.Name == username);
             if (user == null)
             {
                 return true;
@@ -74,25 +74,34 @@ namespace Data.Repository
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
-            LoginResponseDTO loginResponseDTO = new LoginResponseDTO()
+            LoginResponseDTO loginResponseDTO = null;
+                try {
+                 loginResponseDTO = new LoginResponseDTO()
+                {
+                    Token = tokenHandler.WriteToken(token),
+
+                    User = _mapper.Map<UserDTO>(user),
+
+                };
+            }
+            catch (Exception exception)
             {
-                Token = tokenHandler.WriteToken(token),
 
-                User = _mapper.Map<UserDTO>(user),
-
-            };
+            }
+            
             return loginResponseDTO;
 
 
         }
         public async Task<UserDTO> Register(RegistrationRequestDTO registrationRequestDTO)
         {
-            ApplicationUser user = new()
+            ApplicationUser user = new ApplicationUser()
             {
                 UserName = registrationRequestDTO.UserName,
             
                 Email = registrationRequestDTO.UserName,
-                NormalizedEmail = registrationRequestDTO.UserName.ToUpper()
+                NormalizedEmail = registrationRequestDTO.UserName.ToUpper(),
+                Name= registrationRequestDTO.Name
 
 
 

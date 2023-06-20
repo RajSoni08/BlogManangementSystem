@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data.Repository.IRepository
 {
-    public interface IHomeRepository : IRepository<UserDTO>
+    public interface IHomeRepository : IRepository<User>
     {
         bool IsUniqueUser(string username);
         Task<LoginResponseDTO> Login(LoginRequestDTO loginRequestDTO);
